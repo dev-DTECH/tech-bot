@@ -1,7 +1,13 @@
-const { error } = require('console');
+try {
+    const dotenv = require('dotenv');
+dotenv.config();
+} catch (error) {
+    console.log(error)
+}
+
 const discord = require('discord.js');
 const fs = require('fs');
-const config = JSON.parse(fs.readFileSync("config.json"))
+// const config = process.env
 const ytdl = require("ytdl-core")
 
 const bot = new discord.Client();
@@ -36,7 +42,7 @@ bot.on('message', async message => {
         servers[message.guild.id] = { queue: [], playing: false }
     }
     if (message.author.bot) return
-    if (message.content.startsWith(config.prefix)) {
+    if (message.content.startsWith(process.env.PREFIX)) {
         let args = message.content.split(" ")
         switch (args[1]) {
             case "play"://dt play <url>
@@ -135,4 +141,4 @@ bot.on('message', async message => {
 //     }
 // })
 
-bot.login(config.token)
+bot.login(process.env.TOKEN)
