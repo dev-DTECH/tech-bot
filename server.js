@@ -1,13 +1,6 @@
-try {
-    const dotenv = require('dotenv');
-dotenv.config();
-} catch (error) {
-    console.log(error)
-}
-
 const discord = require('discord.js');
 const fs = require('fs');
-// const config = process.env
+const config = JSON.parse(fs.readFileSync("config.json"))
 const ytdl = require("ytdl-core")
 
 const bot = new discord.Client();
@@ -42,7 +35,7 @@ bot.on('message', async message => {
         servers[message.guild.id] = { queue: [], playing: false }
     }
     if (message.author.bot) return
-    if (message.content.startsWith(process.env.PREFIX)) {
+    if (message.content.startsWith(config.prefix)) {
         let args = message.content.split(" ")
         switch (args[1]) {
             case "play"://dt play <url>
