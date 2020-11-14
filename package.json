@@ -1,0 +1,21 @@
+{
+  "name": "tech-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.3.1",
+    "ffmpeg-static": "^4.2.7",
+    "opusscript": "0.0.7",
+    "ytdl-core": "^3.4.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
